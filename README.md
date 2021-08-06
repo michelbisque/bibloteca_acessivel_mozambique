@@ -1,18 +1,26 @@
+
+# bibloteca_acessivel_mozambique
 */////////////////////////////////////////////////////////////////////*
-							0%
+
+				0%
 Passo 0: 
+
 	Copiar todos ficheiro da pasta "Sistema" para a pasta do servidor 
 	PHP
 
+
 */////////////////////////////////////////////////////////////////////*
-							10%
+
+				10%
+			
 Passo 1:
 
 	Criar uma base de dados e importar o ficheiro "biblioteca.sql" na pasta 
 	Banco de dados
 
 */////////////////////////////////////////////////////////////////////*
-							30%
+
+				30%
 
 Passo 2:
 	Editar  as configuracoes de acesso a base de dados. Abrir o ficheiro
@@ -30,13 +38,16 @@ Passo 2:
 
 
 */////////////////////////////////////////////////////////////////////*
-							90%
+
+				90%
+				
 
 Passo 3: 
 		Acessar o sistema atraves de seu navegador. Obrigado!		
 
 */////////////////////////////////////////////////////////////////////*
-							100%						
+
+				100%						
 
 
 
