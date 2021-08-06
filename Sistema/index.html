@@ -1,0 +1,123 @@
+<html>
+<head>
+
+<script language="javascript">
+	// speech to text
+	function ouvir(){
+
+		const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+		let toggleBtn = null;
+		if (typeof SpeechRecognition === "undefined") {
+			startBtn.remove();
+			result.innerHTML = "<b>Browser does not support Speech API. Please download latest chrome.<b>";
+		} else {
+			const recognition = new SpeechRecognition();
+			recognition.continuous = true;
+			recognition.interimResults = true;
+	        recognition.lang = "pt-BR";
+			recognition.onresult = event => {
+				const last = event.results.length - 1;
+				const res = event.results[last];
+				const text = res[0].transcript;
+				if (res.isFinal) {
+					//processing.innerHTML = "processing ....";
+
+					const response = process(text);
+					const p = document.createElement("p");
+					p.innerHTML = `Voce Disse: ${text} </br>O Sistem Disse: ${response}`;
+					//processing.innerHTML = "";
+					document.getElementById("display").appendChild(p);
+
+					// read it out
+					speak(response);
+					//speechSynthesis.speak(new SpeechSynthesisUtterance(response));
+					
+
+				} else {
+					//processing.innerHTML = `listening: ${text}`;
+				}
+			}
+			let listening = true;
+			recognition.start();
+			
+		}
+	
+	}
+
+	// processor
+	function process(rawText) {
+		let text = rawText.replace(/\s/g, "");
+		text = text.toLowerCase();
+		let response = null;
+		switch(text) {
+			case "oi":
+				response = "olah, tudo bem com voce?"; break;
+			case "iniciar":
+				response = "iniciando o sistema?"; break;
+			case "what'syourname":
+				response = "My name's Siri.";  break;
+			case "sim":
+				response = "Confirmado!"; break;
+			case "quehorassão":
+				response = new Date().toLocaleTimeString(); break;
+			case "sair":
+				response = "Saindo do Sistema!!";
+				//toggleBtn();
+		}
+		if (!response) {
+			//window.open(`http://google.com/search?q=${rawText.replace("search", "")}`, "_blank");
+			return `Nao Consegui Reconhecer o seu comando ${rawText}`;
+		}
+		return response;
+	}
+</script>
+
+<script type="text/javascript">
+function populateVoiceList() {
+  if(typeof speechSynthesis === 'undefined') {
+    return;
+  }
+
+  var voices = speechSynthesis.getVoices();
+
+  for(var i = 0; i < voices.length; i++) {
+    var option = document.createElement('option');
+    option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+
+    if(voices[i].default) {
+      option.textContent += ' -- DEFAULT';
+    }
+
+    option.setAttribute('data-lang', voices[i].lang);
+    option.setAttribute('data-name', voices[i].name);
+    document.getElementById("voiceSelect").appendChild(option);
+  }
+}
+
+populateVoiceList();
+if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = populateVoiceList;
+}
+
+function speak(message) {
+	voices = window.speechSynthesis.getVoices()
+	var utterance = new SpeechSynthesisUtterance(message);
+	utterance.voice = voices[17];
+	utterance.lang = voices[17].lang;
+
+	window.speechSynthesis.speak(utterance);
+}
+
+
+</script>
+</head>
+<body>
+
+	<output id="display"></output>
+
+<select id="voiceSelect"></select><br>
+<button  onclick = "ouvir()">Ativar Modo Controle Por Voz! - Limitacao de Interacao</button><br>
+<button  onclick = "speak('Ativar Modo Leitura de Tela!')">Ativar Modo Leitura de Tela! - Limitacao Visual</button><br>
+
+
+</body>
