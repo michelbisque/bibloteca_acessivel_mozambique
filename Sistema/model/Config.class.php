@@ -8,7 +8,7 @@
 
 class Config{
 
-	const SITE_URL =  "http://127.0.0.1/biblioteca/";
+	const SITE_URL =  "http://127.0.0.1/biblioteca";
 	const SITE_PASTA =  "";
 	const SITE_NOME =  "Banca Online";
 	const SITE_EMAIL_ADMIN = "";

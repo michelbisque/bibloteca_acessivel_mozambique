@@ -4,9 +4,9 @@
 
 <section >
     <div vw class="enabled" tabindex="0">
-        <div vw-access-button class="active" tabindex="1"></div>
-        <div vw-plugin-wrapper tabindex="2">
-             <div class="vw-plugin-top-wrapper" tabindex="3"></div>
+        <div vw-access-button class="active" tabindex="0"></div>
+        <div vw-plugin-wrapper tabindex="0">
+             <div class="vw-plugin-top-wrapper" tabindex="0"></div>
         </div>
      </div>
      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
@@ -16,13 +16,13 @@
 
 
     <div class="adminActions">
-        <input type="checkbox" name="adminToggle" class="adminToggle" checked="true" />
-        <a class="adminButton" href="#!"><i class="fab fa-accessible-icon"></i></a>
+        <input type="checkbox" name="adminToggle" class="adminToggle"  />
+        <a class="adminButton" href="#!" title="Menu de Acessibilidade" tabindex="0"><i class="fab fa-accessible-icon"></i></a>
         <div class="adminButtons">
-            <a href="#" title="Ampliar textos" ><i class="fas fa-search-plus"></i></a>
-            <a href="#" title="Minimizar textos"><i class="fas fa-search-minus"></i></a>
-            <a href="#" title="Controlo Por Voz"><i class="fas fa-microphone"></i></a>
-            <a href="#" title="Leitura de Tela"><i class="fas fa-blind"></i></a>
+            <a href="#" title="Ampliar textos" id="zoomIn" tabindex="0"><i class="fas fa-search-plus"></i></a>
+            <a href="#" title="Minimizar textos" id="zoomOut" tabindex="0"><i class="fas fa-search-minus"></i></a>
+            <a href="#" title="Controlo Por Voz" onclick="ouvir()" id="ouvir" tabindex="0"><i class="fas fa-microphone"></i></a>
+            <a href="#" title="Leitura de Tela" onclick="speak('Ativar Modo Leitura de Tela!')" tabindex="0"><i class="fas fa-blind"></i></a>
         </div>
     </div>
 
@@ -44,18 +44,14 @@
         <div class="container">
             <div class="row">
                 <div class="footer-text col-md-3">
-                    <p><a target="_blank" href="#">Bibioteca Online Mocambique</a></p>
+                    <p><a target="_blank" tabindex="0" href="{$HOME}">Biblioteca Online Mocambique</a></p>
                 </div>
                 <div class="col-md-9 pull-right">
+
                     <ul>
-                        <li><a href="index-2.html">Pagina Inicial</a></li>
-                        <li><a href="books-media-list-view.html">livros</a></li>
-                        <li><a href="news-events-list-view.html">News &amp; Events</a></li>
-                        <li><a href="#">Kids &amp; Teens</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="#">Research</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contactar</a></li>
+                        <li><b>Desenvolvido Por:</b> Sara   Tivana</li>
+                        <li>Michel Bis..</li>
+                        <li>Manuel Novela</li>
                     </ul>
                 </div>
             </div>

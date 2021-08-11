@@ -1,6 +1,6 @@
 <?php
 /* Smarty version 3.1.39, created on 2021-08-06 19:32:53
-  from 'C:\xampp\htdocs\biblioteca\view\ler.tpl' */
+  from 'C:\xampp\htdocs\biblioteca\view\my_livros.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
@@ -11,7 +11,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     '26fd0a5a9b06252514c2a5268a10bfe7c0d9b744' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\biblioteca\\view\\ler.tpl',
+      0 => 'C:\\xampp\\htdocs\\biblioteca\\view\\my_livros.tpl',
       1 => 1628271165,
       2 => 'file',
     ),

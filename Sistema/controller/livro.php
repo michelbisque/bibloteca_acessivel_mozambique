@@ -1,6 +1,8 @@
 <?php
 $smarty = new Template();
 
+$smarty->assign('TEMA', Rotas::get_SiteTema());
 
-$smarty->display('ler.tpl');
+$smarty->display('livro.tpl');
+
  ?>

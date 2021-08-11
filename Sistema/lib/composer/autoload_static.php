@@ -27,6 +27,7 @@ class ComposerStaticInitb9195ed2aa8f945ceee910c130dd9ac7
         'Conexao' => __DIR__ . '/../..' . '/model/Conexao.class.php',
         'Config' => __DIR__ . '/../..' . '/model/Config.class.php',
         'Livro' => __DIR__ . '/../..' . '/model/Livro.class.php',
+        'Meus_Livros' => __DIR__ . '/../..' . '/model/Meus_livros.class.php',
         'Rotas' => __DIR__ . '/../..' . '/model/Rotas.class.php',
         'Smarty' => __DIR__ . '/..' . '/smarty/smarty/libs/Smarty.class.php',
         'SmartyBC' => __DIR__ . '/..' . '/smarty/smarty/libs/SmartyBC.class.php',

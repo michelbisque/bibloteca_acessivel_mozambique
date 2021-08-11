@@ -10,7 +10,7 @@ class Livro extends Conexao
       parent::__construct();
     }
 
-    function get_Produtos()
+    function get_Livros()
     {
       //query especifica para buscar produtos de uma categoria especifica
       $query = "SELECT * FROM {$this->db_prefix}livro l ,
@@ -20,6 +20,28 @@ class Livro extends Conexao
 
       $this->ExecuteSQL($query);
       $this->getLista();
+    }
+    function get_MeusLivros()
+    {
+        //query especifica para buscar produtos de uma categoria especifica
+        $query = "SELECT * FROM {$this->db_prefix}livro l ,
+      {$this->db_prefix}categoria c, {$this->db_prefix}catalogo g WHERE  l.livro_cat = c.cat_id AND l.livro_catalogo = g.catlg_id";
+
+        $query.= " ORDER BY l.livro_id DESC";
+
+        $this->ExecuteSQL($query);
+        $this->getLista();
+    }
+    function get_LivrosFavoritos()
+    {
+        //query especifica para buscar produtos de uma categoria especifica
+        $query = "SELECT * FROM {$this->db_prefix}livro l ,
+      {$this->db_prefix}categoria c, {$this->db_prefix}catalogo g WHERE  l.livro_cat = c.cat_id AND l.livro_catalogo = g.catlg_id";
+
+        $query.= " ORDER BY l.livro_id DESC";
+
+        $this->ExecuteSQL($query);
+        $this->getLista();
     }
 
     function getLista()

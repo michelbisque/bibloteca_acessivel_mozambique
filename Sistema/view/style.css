@@ -17345,6 +17345,7 @@ a:focus {
     padding: 0 8px;
   }
 }
+
 .actions ul li a {
   color: #282828;
   font-size: 16px;
@@ -17352,6 +17353,15 @@ a:focus {
 .actions ul li a:hover {
   color: #ff7236;
 }
+.actions .btn .btn-success{
+  color: #fff;
+  font-size: 16px;
+}
+.actions .btn .btn-success:hover{
+  color: #ccc;
+}
+
+
 .actions ul li:hover {
   box-shadow: none;
 }
@@ -19399,7 +19409,7 @@ a:focus {
   backface-visibility: visible;
 }
 .bx-wrapper .bx-pager.bx-default-pager a:hover {
-  background: #ff7236;
+  background: #fff;
 }
 .bx-wrapper .bx-pager.bx-default-pager a.active {
   background: #ff7236;
@@ -19450,6 +19460,7 @@ background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
     width: 100%;
     bottom: 120%;
     text-align: center;
+    visibility: hidden;
   }
 
     .adminButtons a {
@@ -19463,12 +19474,14 @@ background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
       color: #fff;
       opacity: 0;
       visibility: hidden;
+
       position: relative;
       box-shadow: 0 0 5px 1px rgba(51, 51, 51, .3);
     }
 
       .adminButtons a:hover {
-        transform: scale(1.05);
+        transform: scale(1.2);
+        z-index: 999;
       }
 
       .adminButtons a:nth-child(1) {background-color: #ff5722; transition: opacity .2s ease-in-out .3s, transform .15s ease-in-out;}
@@ -19507,3 +19520,338 @@ background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
       opacity: 1;
       visibility: visible;
     }
+
+
+/*basic reset
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  background: #6441A5; /* fallback for old browsers */
+  /*background: -webkit-linear-gradient(to left, #6441A5, #2a0845); /* Chrome 10-25, Safari 5.1-6 */
+/*}
+
+body {
+  font-family: montserrat, arial, verdana;
+  background: transparent;
+}*/
+
+/*form styles*/
+#msform {
+  text-align: center;
+  position: relative;
+  margin-top: 30px;
+}
+
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 0px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 10%;
+
+  /*stacking fieldsets above each other*/
+  position: relative;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+  display: none;
+}
+
+/*inputs*/
+#msform input, #msform textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #020202;
+  font-size: 13px;
+}
+
+#msform input:focus, #msform textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #84bb45;
+  outline-width: 0;
+  transition: All 0.5s ease-in;
+  -webkit-transition: All 0.5s ease-in;
+  -moz-transition: All 0.5s ease-in;
+  -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+#msform .action-button {
+  width: 100px;
+  background: #84bb45;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#msform .action-button:hover, #msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #84bb45;
+}
+
+#msform .action-button-previous {
+  width: 100px;
+  background: #333382;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #333382;
+}
+
+/*headings*/
+.fs-title {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #2C3E50;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.fs-subtitle {
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/*progressbar*/
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
+  background-color: currentcolor;
+  padding-top: 20px;
+}
+
+#progressbar li {
+  list-style-type: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 9px;
+  width: 33.33%;
+  float: left;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 24px;
+  height: 24px;
+  line-height: 26px;
+  display: block;
+  font-size: 12px;
+  color: #333;
+  background: white;
+  border-radius: 25px;
+  margin: 0 auto 10px auto;
+}
+
+/*progressbar connectors*/
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1; /*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+  /*connector not needed before the first step*/
+  content: none;
+}
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before, #progressbar li.active:after {
+  background: #84bb45;
+  color: white;
+}
+
+
+/* Not relevant to this form */
+.dme_link {
+  margin-top: 30px;
+  text-align: center;
+}
+.dme_link a {
+  background: #FFF;
+  font-weight: bold;
+  color: #84bb45;
+  border: 0 none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 5px 25px;
+  font-size: 12px;
+}
+
+.dme_link a:hover, .dme_link a:focus {
+  background: #333382;
+  text-decoration: none;
+}
+
+.switch {
+}
+
+.switch input[type=checkbox] {
+  display: none;
+}
+
+.switch input[type=checkbox] + label {
+  position:relative;
+  min-width:calc(calc(2.375rem * .8) * 2);
+  border-radius:calc(2.375rem * .8);
+  height:calc(2.375rem * .8);
+  line-height:calc(2.375rem * .8);
+  display:inline-block;
+  cursor:pointer;
+  outline:none;
+  user-select:none;
+  vertical-align:middle;
+  text-indent:calc(calc(calc(2.375rem * .8) * 2) + .5rem);
+}
+.switch input[type=checkbox] + label::before,
+.switch input[type=checkbox] + label::after {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:calc(calc(2.375rem * .8) * 2);
+  bottom:0;
+  display:block;
+}
+.switch input[type=checkbox] + label::before {
+  right:0;
+  background-color:#282828;
+  border-radius:calc(2.375rem * .8);
+  transition:.2s all;
+}
+.switch input[type=checkbox] + label::after {
+  top:2px;
+  left:2px;
+  width:calc(calc(2.375rem * .8) - calc(2px * 2));
+  height:calc(calc(2.375rem * .8) - calc(2px * 2));
+  border-radius:50%;
+  background-color:#fff;
+  transition: all 0.3s ease-in 0s;;
+}
+.switch input[type=checkbox]:checked + label::before {
+  background-color:#84bb45;
+}
+.switch input[type=checkbox]:checked + label::after {
+  margin-left:calc(2.375rem * .8);
+}
+.switch input[type=checkbox]:focus + label::before {
+  outline:none;
+  box-shadow:0 0 0 .2rem rgba(0,136,221,.25);
+}
+.switch input[type=checkbox]:disabled + label {
+  color:#868e96;
+  cursor:not-allowed;
+}
+.switch input[type=checkbox]:disabled + label::before {
+  background-color:#e9ecef;
+}
+
+.switch.switch-xs {
+  font-size:.8rem;
+}
+.switch.switch-xs input[type=checkbox] + label {
+  min-width:calc(calc(1.5375rem * .8) * 2);
+  height:calc(1.5375rem * .8);
+  line-height:calc(1.5375rem * .8);
+  text-indent:calc(calc(calc(1.5375rem * .8) * 2) + .5rem);
+}
+.switch.switch-xs input[type=checkbox] + label::before {
+  width:calc(calc(1.5375rem * .8) * 2);
+}
+.switch.switch-xs input[type=checkbox] + label::after {
+  width:calc(calc(1.5375rem * .8) - calc(2px * 2));
+  height:calc(calc(1.5375rem * .8) - calc(2px * 2));
+}
+.switch.switch-xs input[type=checkbox]:checked + label::after {
+  margin-left:calc(1.5375rem * .8);
+}
+
+/* Small */
+.switch.switch-sm {
+  font-size:.875rem;
+}
+.switch.switch-sm input[type=checkbox] + label {
+  min-width:calc(calc(1.9375rem * .8) * 2);
+  height:calc(1.9375rem * .8);
+  line-height:calc(1.9375rem * .8);
+  text-indent:calc(calc(calc(1.9375rem * .8) * 2) + .5rem);
+}
+.switch.switch-sm input[type=checkbox] + label::before {
+  width:calc(calc(1.9375rem * .8) * 2);
+}
+.switch.switch-sm input[type=checkbox] + label::after {
+  width:calc(calc(1.9375rem * .8) - calc(2px * 2));
+  height:calc(calc(1.9375rem * .8) - calc(2px * 2));
+}
+.switch.switch-sm input[type=checkbox]:checked + label::after {
+  margin-left:calc(1.9375rem * .8);
+}
+
+/* Large */
+.switch.switch-lg {
+  font-size:1.25rem;
+}
+.switch.switch-lg input[type=checkbox] + label {
+  min-width:calc(calc(3rem * .8) * 2);
+  height:calc(3rem * .8);
+  line-height:calc(3rem * .8);
+  text-indent:calc(calc(calc(3rem * .8) * 2) + .5rem);
+}
+.switch.switch-lg input[type=checkbox] + label::before {
+  width:calc(calc(3rem * .8) * 2);
+}
+.switch.switch-lg input[type=checkbox] + label::after {
+  width:calc(calc(3rem * .8) - calc(2px * 2));
+  height:calc(calc(3rem * .8) - calc(2px * 2));
+}
+.switch.switch-lg input[type=checkbox]:checked + label::after {
+  margin-left:calc(3rem * .8);
+}
+
+.switch + .switch {
+  margin-left:1rem;
+}
+
+.posicao_switch{
+  text-align: left;
+  margin-left: 20px;
+  font-size: 16px;
+}

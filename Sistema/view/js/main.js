@@ -1,25 +1,3 @@
-//----------------------------------------------------------------
-// >>> TABLE OF CONTENTS:
-//----------------------------------------------------------------
-
-// 01. Mobile Menu
-// 02. Header Dropdown Menu
-// 03. Select List (Dropdown)
-// 04. Facts Counter
-// 05. Category Filter (MixItUp Plugin)
-// 06. Vertical Tabs
-// 07. Blog Tags (Tooltip)
-// 08. Owl Carousel
-// 09. Sidebar Accordion
-// 10. Responsive Tabs
-// 11. Responsive Table
-// 12. Form Fields (Value Disappear on Focus)
-// 13. Bootstrap Carousel Swipe (Testimonials Carousel)
-// 14. Bx Carousel
-// 15. Contact Form Submit/Validation
-// 16. Masonry
-
-//----------------------------------------------------------------
 
 $(function () {
     'use strict';
@@ -37,7 +15,7 @@ $(function () {
         mobile: function () {
             //activate mmenu
             mobileMenuObj.mmenu({
-                slidingSubmenus: false,
+                slidingSubmenus: true,
                 position: 'right',
                 zposition: 'front'
             }, {
@@ -282,10 +260,10 @@ $(function () {
     //--------------------------------------------------------
     var testimonialsObj = $("#testimonials");
     testimonialsObj.swiperight(function () {
-        $(this).carousel('prev');
+        $(this).carousel('Anterior');
     });
     testimonialsObj.swipeleft(function () {
-        $(this).carousel('next');
+        $(this).carousel('Proximo');
     });
 
     //Bx Carousel
@@ -323,8 +301,10 @@ $(function () {
         touchEnabled: true,
         controls: false,
         infiniteLoop: true,
-        shrinkItems: true
+        shrinkItems: true,
+        auto: true
     });
+
 
     //Popular Items Detail V2
 
@@ -350,6 +330,10 @@ $(function () {
 
     var popularItemObjD2 = $('.popular-items-detail-v2');
     popularItemObjD2.bxSlider({
+        nextSelector: '#LivroProximo',
+        prevSelector: '#LivroAnterior',
+        nextText: 'Proximo →',
+        prevText: '← Anterior',
         minSlides: 1,
         maxSlides: popularSlidesD2,
         slideWidth: popularWidthD2,
@@ -358,7 +342,17 @@ $(function () {
         touchEnabled: true,
         controls: false,
         infiniteLoop: true,
-        shrinkItems: true
+        shrinkItems: true,
+        auto: true
+    });
+    $('#LivroProximo').click(function(){
+        popularItemObjD2.goToNextSlide();
+        return false;
+    });
+
+    $('#LivroAnterior').click(function(){
+        popularItemObjD2.goToPrevSlide();
+        return false;
     });
 
     //Contact Form Submit/Validation
@@ -418,6 +412,194 @@ $(function () {
                 alert('Oops! Invalid Email Address');
             }
         }
+        return false;
+    });
+
+    /*var currFFZoom = 1;
+    var currIEZoom = 100;
+
+    $('#zoomIn').on('click',function(){
+        alert('zoooo');
+        if ($.browser.mozilla){
+            var step = 0.02;
+            currFFZoom += step;
+            $('body').css('MozTransform','scale(' + currFFZoom + ')');
+        } else {
+            var step = 2;
+            currIEZoom += step;
+            $('body').css('zoom', ' ' + currIEZoom + '%');
+        }
+    });
+
+    $('#zoomOut').on('click',function(){
+
+        alert('zaaaa');
+        if ($.browser.mozilla){
+            var step = 0.02;
+            currFFZoom -= step;
+            $('body').css('MozTransform','scale(' + currFFZoom + ')');
+
+        } else {
+            var step = 2;
+            currIEZoom -= step;
+            $('body').css('zoom', ' ' + currIEZoom + '%');
+        }
+    });*/
+
+    // Set initial zoom level
+    var zoom_level=100;
+
+    // Click events
+    $('#zoomIn').click(function() { zoom_page(10, $(this)) });
+    $('#zoomOut').click(function() { zoom_page(-10, $(this)) });
+    $('#zoom_reset').click(function() { zoom_page(0, $(this)) });
+
+    // Zoom function
+    function zoom_page(step, trigger)
+    {
+        // Zoom just to steps in or out
+        if(zoom_level>=120 && step>0 || zoom_level<=80 && step<0) return;
+        console.log(zoom_level);
+        // Set / reset zoom
+        if(step==0) zoom_level=100;
+        else zoom_level=zoom_level+step;
+
+        // Set page zoom via CSS
+        $('#main').css({
+            transform: 'scale('+(zoom_level/100)+')', // set zoom=
+            transformOrigin: '0% 0' // set transform scale base
+        });
+        /*$('body').css({
+            zoom: (zoom_level + step)
+        });*/
+
+
+        // Adjust page to zoom width
+        if(zoom_level>100) $('body').css({ width: (zoom_level*1.2)+'%' });
+        else $('#main').css({ width: '100%' });
+
+        // Activate / deaktivate trigger (use CSS to make them look different)
+       /* if(zoom_level>=120 || zoom_level<=80) trigger.addClass('disabled');
+        else trigger.parents('ul').find('.disabled').removeClass('disabled');
+        if(zoom_level!=100) $('#zoom_reset').removeClass('disabled');
+        else $('#zoom_reset').addClass('disabled');*/
+    }
+
+//jQuery time
+    var current_fs, next_fs, previous_fs; //fieldsets
+    var left, opacity, scale; //fieldset properties which we will animate
+    var animating; //flag to prevent quick multi-click glitches
+
+    $(".next").click(function(){
+        if(animating) return false;
+        animating = true;
+
+        current_fs = $(this).parent();
+        next_fs = $(this).parent().next();
+
+        //activate next step on progressbar using the index of next_fs
+        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+        //show the next fieldset
+        next_fs.show();
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale current_fs down to 80%
+                scale = 1 - (1 - now) * 0.2;
+                //2. bring next_fs from the right(50%)
+                left = (now * 50)+"%";
+                //3. increase opacity of next_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({
+                    'transform': 'scale('+scale+')',
+                    'position': 'absolute'
+                });
+                next_fs.css({'left': left, 'opacity': opacity});
+            },
+            duration: 800,
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            },
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+    });
+
+    $(".previous").click(function(){
+        if(animating) return false;
+        animating = true;
+
+        current_fs = $(this).parent();
+        previous_fs = $(this).parent().prev();
+
+        //de-activate current step on progressbar
+        $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+        //show the previous fieldset
+        previous_fs.show();
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale previous_fs from 80% to 100%
+                scale = 0.8 + (1 - now) * 0.2;
+                //2. take current_fs to the right(50%) - from 0%
+                left = ((1-now) * 50)+"%";
+                //3. increase opacity of previous_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({'left': left});
+                previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+            },
+            duration: 800,
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            },
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+    });
+
+    $(".submit").click(function(){
+        return false;
+    });
+
+
+
+
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+    function cookie() {
+        var x = getCookie("mostrarModal");
+
+        if (x == "" || x == null) {
+            console.log("Welcome! mostrarModal");
+            setCookie("mostrarModal", "mostrarModal", 365);
+            $('#myModal').modal('show');
+        } else if (x == "mostrarModal") {
+            console.log("You came back! mostrarModal");
+        }
+    }
+
+    cookie();
+
+
+    $('#modalClose').click(function(){
+        $('#myModal').modal('hide');
         return false;
     });
 });

@@ -15,7 +15,7 @@ $catalogos->get_catalogos();
 
 //INIT Livros
 $livros = new Livro();
-$livros->get_Produtos();
+$livros->get_Livros();
 
 
 //valores para a View do Smarty
