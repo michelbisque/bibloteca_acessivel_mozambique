@@ -47,7 +47,7 @@
 <ol>
 	<li> 
 		<h4>Ficheiros </h4>
-		<p> Copiar todos ficheiro da pasta "Sistema" para a pasta do php, do seu servidor</p>
+		<p> Copiar todos ficheiro da pasta "Sistema" para a pasta do apache, do seu servidor</p>
 		<p> Nota: Pode instalar em uma pasta ao enves da root, desde que especifique o caminho nas configuracoes a seguir</p>
 	</li>
 	<li> 
@@ -57,22 +57,22 @@
 				<p>Criar uma base de dados e importar o ficheiro "biblioteca.sql", que se encontra pasta "Banco de dados" no GitHUB</p>
 			</li>
 			<li>
-				<p>Editar  as configuracoes de acesso a base de dados. Abrir o ficheiro "root/model/Config.class.php" acessado apartir da Pasta root.</p>
+				<p>Editar  as configuracoes de acesso a base de dados. Abrir o ficheiro "root/model/Config.class.php" acessado apartir da Pasta raiz do seu servidor.</p>
 				<p>Consiedere sua Proprias Configuracoes.
 					
 	class Config{
-				const SITE_URL =  "http://127.0.0.1/biblioteca/"; 	//Endereco IP do seu servidor apache antecedido por http:// ou https:// 
-				const SITE_PASTA =  ""; 				//Nome da paste se seu sistema esta em uma sub-pasta. Ex: organizacao.co.mz/biblioteca
-				const SITE_NOME =  "Biblioteca Acessivel"; 		//Nome do Site
-				const SITE_EMAIL_ADMIN = "admin@help.com"; Email	//Email do administrador do sistema
+		const SITE_URL =  "http://127.0.0.1/biblioteca/"; 	//Endereco IP do seu servidor apache antecedido por http:// ou https:// 
+		const SITE_PASTA =  ""; 				//Nome da paste se seu sistema esta em uma sub-pasta. Ex: organizacao.co.mz/biblioteca
+		const SITE_NOME =  "Biblioteca Acessivel"; 		//Nome do Site
+		const SITE_EMAIL_ADMIN = "admin@help.com"; Email	//Email do administrador do sistema
 				
-				//BASE DE DADOS
-				const BD_HOST = "localhost",   				//Endereco IP do seu servidor MYSQL
-					  BD_USER = "root",				//Usuario MYSQL
-					  BD_SENHA = "",				//Senha MYSQL
-					  BD_BANCO = "biblioteca",			//Nome da base de dados que foi importado o ficheiro "biblioteca.sql" no passo anterior.
-					  BD_PREFIX = "mz_",				// Nao Alterar - prefixo do nome das tabelas.
-					  BD_PORT = "3306";				// Porta do seu servidor MYSQL
+		//BASE DE DADOS
+		const BD_HOST = "localhost",   				//Endereco IP do seu servidor MYSQL
+		BD_USER = "root",					//Usuario MYSQL
+		BD_SENHA = "",						//Senha MYSQL
+		BD_BANCO = "biblioteca",				//Nome da base de dados que foi importado o ficheiro "biblioteca.sql" no passo anterior.
+		BD_PREFIX = "mz_",					// Nao Alterar - prefixo do nome das tabelas.
+		BD_PORT = "3306";					// Porta do seu servidor MYSQL
 *//
 		 </p>
 	     </li>
