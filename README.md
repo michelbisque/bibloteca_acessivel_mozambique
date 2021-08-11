@@ -47,14 +47,14 @@
 <ol>
 	<li> 
 		<h4>Ficheiros </h4>
-		<p> Copiar todos ficheiro da pasta "Sistema" para a pasta do apache, do seu servidor</p>
+		<p> Copiar todos ficheiro da pasta <a href='https://github.com/michelbisque/bibloteca_acessivel_mozambique/tree/main/Sistema'>"Sistema"</a> para a pasta do apache, do seu servidor</p>
 		<p> Nota: Pode instalar em uma pasta ao enves da root, desde que especifique o caminho nas configuracoes a seguir</p>
 	</li>
 	<li> 
 		<h4>Base de Dados && Configuracao de Caminhos</h4>
 		<ol>
 			<li>
-				<p>Criar uma base de dados e importar o ficheiro "biblioteca.sql", que se encontra pasta "Banco de dados" no GitHUB</p>
+				<p>Criar uma base de dados e importar o ficheiro "biblioteca.sql", que se encontra pasta <a href='https://github.com/michelbisque/bibloteca_acessivel_mozambique/blob/main/Banco%20de%20Dados/biblioteca.sql' >"Banco de dados"</a>  no GitHUB</p>
 			</li>
 			<li>
 				<p>Editar  as configuracoes de acesso a base de dados. Abrir o ficheiro "root/model/Config.class.php" acessado apartir da Pasta raiz do seu servidor.</p>
