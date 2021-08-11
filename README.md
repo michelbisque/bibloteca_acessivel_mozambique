@@ -1,5 +1,10 @@
 
 # bibloteca_acessivel_mozambique
+
+demostracao rapida - http://bibliotecaacessivel.rf.gd
+
+tutorial de instalacao
+
 */////////////////////////////////////////////////////////////////////*
 
 				0%
