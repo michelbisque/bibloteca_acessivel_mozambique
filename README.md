@@ -1,9 +1,20 @@
 
 # bibloteca_acessivel_mozambique
 
-demostracao rapida - http://bibliotecaacessivel.rf.gd
-
-tutorial de instalacao
+<h2>demostracao rapida - http://bibliotecaacessivel.rf.gd</h2>
+<span>Click no link acima para acessar uma pre instalacao do nosso sistema </span>
+<p>Onde Voce pode testar os Modos:</p>
+	<ul>
+	<li>Controle Por Voz</li>
+	<li>Leitura de Tela</li>
+	<li>Navegacao por Tab (tabindex)</li>
+	<li>Ampliar (zoomIn) ou Diminuir(ZoomOut) Texto, Imagens, Tabelas, e outros elementos visiveis</li>
+	<li>Modo Linguagem Gestual(Libras)</li>
+	<li>Assistente virtual, implementada como Bibliotecaria virtual</li>
+	</ul>
+ ou
+ 
+<h2>tutorial de instalacao:</h2>
 
 */////////////////////////////////////////////////////////////////////*
 
