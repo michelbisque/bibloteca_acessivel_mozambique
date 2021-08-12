@@ -12,7 +12,7 @@
 [shield-license]: https://img.shields.io/badge/license-MIT-blue.svg
 [shield-build]: https://img.shields.io/badge/build-passing-brightgreen.svg
 
-<h2>Demostração rápida- http://bibliotecaacessivel.rf.gd</h2>
+<h2>Demostração rápida- https://bibliotecaacessivel.rf.gd</h2>
 <span>Clique no link acima para acessar uma pré-instalação do nosso sistema.</span>
 
 <p><b>Onde Você pode testar os Modos:</b></p>
