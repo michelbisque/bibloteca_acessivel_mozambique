@@ -18,7 +18,7 @@ class Rotas
 	static function get_SiteRaiz(){
 		return $_SERVER['DOCUMENT_ROOT'];
 	}
-
+	
 	static function get_SiteTema(){
 		return self::get_SiteHome().'/'.self::$pasta_view;
 	}

@@ -37,6 +37,52 @@
 <!-- End: Facts Counter -->
 
 
+
+<script>
+const MIC_PERM_BUTTON = document.querySelector('#ouvir');
+
+MIC_PERM_BUTTON.addEventListener('click', async ev => {
+  console.debug('Mic perm:', 'button click:', ev);
+
+  setTimeout(() => queryBrowserMicrophonePermission(), 200);
+
+  const res = await launchBrowserMicrophoneAllowPrompt();
+
+  queryBrowserMicrophonePermission();
+});
+
+queryBrowserMicrophonePermission();
+
+async function launchBrowserMicrophoneAllowPrompt () {
+  try { // Initiate the browser prompt.
+    const res = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+
+    console.warn('Mic perm:', 'allow:', res);
+    return res;
+  } catch (err) {
+    console.warn('Mic perm:', 'block:', err); // "DOMException: Permission denied"
+    return false;
+  }
+}
+
+async function queryBrowserMicrophonePermission () {
+  const result = await navigator.permissions.query({ name: 'microphone' });
+
+  if (result.state == 'granted') {
+  } else if (result.state == 'prompt') {
+  } else if (result.state == 'denied') {
+  }
+
+  result.onchange = ev => {
+    console.warn('Mic perm:', 'onchange:', ev);
+  };
+
+  console.warn('Mic perm:', 'state:', result.state, result);
+  return result;
+}
+</script>
+
+
 <!-- Start: Footer -->
 <footer class="site-footer">
 

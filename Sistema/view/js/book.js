@@ -1,4 +1,4 @@
-const url = '/biblioteca/media/pdf/pdf.pdf';
+const url = 'http://bibliotecaacessivel.rf.gd/media/pdf/pdf.pdf';
 let pdfDoc = null,
     pageNum = 1,
     pageIsRendering = false,

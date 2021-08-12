@@ -1,3 +1,24 @@
+
+function getLocalStream() {
+   if (window.location.protocol != "https") {
+            //window.location = "https://" + window.location.href.substring(window.location.protocol.length, window.location.href.length);
+            //window.location.reload();
+        }
+    
+}
+
+   navigator.permissions.query({name: 'microphone'})
+ .then((permissionObj) => {
+  console.log(permissionObj.state);
+ })
+ .catch((error) => {
+  console.log('Got error :', error);
+ })
+
+
+
+getLocalStream();
+
 var languagueID = 0;
 var voices = speechSynthesis.getVoices();
 function populateVoiceList() {
@@ -8,7 +29,7 @@ function populateVoiceList() {
     voices = speechSynthesis.getVoices();
 
     for(var i = 0; i < voices.length; i++) {
-        if(voices[i].name == "Microsoft Helia - Portuguese (Portugal)"){
+        if(voices[i].name == "Google português do Brasil"){
             languagueID = i;
         }
         if(voices[i].default) {
