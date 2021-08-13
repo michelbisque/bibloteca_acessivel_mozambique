@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2021 at 10:58 PM
+-- Generation Time: Aug 13, 2021 at 07:08 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `biblioteca`
--- Prefixo das Tableas : 'mz_'
+--
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,25 @@ CREATE TABLE `mz_categoria` (
 INSERT INTO `mz_categoria` (`cat_id`, `cat_nome`, `cat_img`, `cat_slug`, `cat_link`) VALUES
 (1, 'Academicos', '', 'academico', ''),
 (2, 'Infantis', '', 'infantil', ''),
-(3, 'Adolescentes', '', 'adolescentes', '');
+(3, 'Adolescentes', '', 'adolescentes', ''),
+(4, 'Romance', '', 'Romance', ''),
+(5, 'Terror', '', 'Terror', ''),
+(6, 'Adultos', '', 'adultos', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mz_contacto`
+--
+
+CREATE TABLE `mz_contacto` (
+  `id` int(11) NOT NULL,
+  `mensagem` varchar(250) NOT NULL,
+  `telefone` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `nome` varchar(250) NOT NULL,
+  `apelido` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -77,25 +95,34 @@ CREATE TABLE `mz_livro` (
   `livro_titulo` varchar(250) NOT NULL,
   `livro_autor` varchar(250) NOT NULL,
   `livro_ISBN` varchar(250) NOT NULL,
-  `livro_prologo` varchar(250) NOT NULL,
+  `livro_prologo` text NOT NULL,
   `livro_cat` int(11) NOT NULL,
   `livro_img` varchar(250) NOT NULL,
-  `livro_catalogo` int(11) NOT NULL
+  `livro_catalogo` int(11) NOT NULL,
+  `livro_ficheiro` varchar(250) NOT NULL DEFAULT 'pdf.pdf',
+  `data_publicacao` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mz_livro`
 --
 
-INSERT INTO `mz_livro` (`livro_id`, `livro_titulo`, `livro_autor`, `livro_ISBN`, `livro_prologo`, `livro_cat`, `livro_img`, `livro_catalogo`) VALUES
-(1, 'Livro 1', 'Sr Escritor Exemplo', '1105412053', 'Este livro conta a historia de ...', 1, '01.jpg', 1),
-(2, 'Livro 2', 'Sr Escritor 2', '110541205313', 'Este livro conta a historia de ...', 2, '02.jpg', 2),
-(3, 'Livro 1', 'Sr Escritor Exemplo', '1105412053', 'Este livro conta a historia de ...', 1, '03.jpg', 1),
-(4, 'Livro 2', 'Sr Escritor 2', '110541205313', 'Este livro conta a historia de ...', 2, '04.jpg', 1),
-(5, 'Livro 1', 'Sr Escritor Exemplo', '1105412053', 'Este livro conta a historia de ...', 1, '05.jpg', 1),
-(6, 'Livro 2', 'Sr Escritor 2', '110541205313', 'Este livro conta a historia de ...', 2, '06.jpg', 2),
-(7, 'Livro 1', 'Sr Escritor Exemplo', '1105412053', 'Este livro conta a historia de ...', 1, '07.jpg', 2),
-(8, 'Livro 2', 'Sr Escritor 2', '110541205313', 'Este livro conta a historia de ...', 2, '08.jpg', 1);
+INSERT INTO `mz_livro` (`livro_id`, `livro_titulo`, `livro_autor`, `livro_ISBN`, `livro_prologo`, `livro_cat`, `livro_img`, `livro_catalogo`, `livro_ficheiro`, `data_publicacao`) VALUES
+(1, 'Moçambique Oculto', 'Milton Manjate', '1105412053', 'Neste livro você vai poder conhecer as verdadeiras histórias\r\nsobre esses lugares.\r\nO que você está prestes a ler, obviamente não precisa \r\nacreditar, mas lhe garanto que são fatos reais, alguns deles vividos \r\nou presenciados por mim, que eu decidi ', 6, '001.jpeg', 1, '001.pdf', NULL),
+(2, 'Você Não Merece Ser Feliz', 'Craque Daniel', '8551006452, 9788551006450', 'Daniel Furlan faz parte do coletivo TV Quase e, portanto, é um dos criadores, roteiristas e atores de programas como Choque de Cultura, Falha de Cobertura e O Último Programa do Mundo, além de Irmão do Jorel, onde atua e faz redação final e músicas, ', 4, '002.jpeg', 2, '002.pdf', NULL),
+(3, 'As 16 leis do sucesso', 'Napoleon Hill', '978-85-62409-96-7', 'As 16 leis do sucesso é  um curso pratico que reúne  16 podetosas lições que são  bases da filosofia  de Napoleon Hill, maior gênio na área de realização pessoal e psicologia aplicada de todos tempos.', 1, '003.jpeg', 1, '003.pdf', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mz_meuslivros`
+--
+
+CREATE TABLE `mz_meuslivros` (
+  `Id` int(11) NOT NULL,
+  `Livro_id` int(11) NOT NULL,
+  `Usuario` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -114,12 +141,25 @@ ALTER TABLE `mz_categoria`
   ADD PRIMARY KEY (`cat_id`);
 
 --
+-- Indexes for table `mz_contacto`
+--
+ALTER TABLE `mz_contacto`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `mz_livro`
 --
 ALTER TABLE `mz_livro`
   ADD PRIMARY KEY (`livro_id`),
   ADD KEY `FK_categoria_id` (`livro_cat`) USING BTREE,
   ADD KEY `FK_catalogo_id` (`livro_catalogo`);
+
+--
+-- Indexes for table `mz_meuslivros`
+--
+ALTER TABLE `mz_meuslivros`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `FK_MeuLivro_id` (`Livro_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -135,13 +175,25 @@ ALTER TABLE `mz_catalogo`
 -- AUTO_INCREMENT for table `mz_categoria`
 --
 ALTER TABLE `mz_categoria`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `mz_contacto`
+--
+ALTER TABLE `mz_contacto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `mz_livro`
 --
 ALTER TABLE `mz_livro`
   MODIFY `livro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `mz_meuslivros`
+--
+ALTER TABLE `mz_meuslivros`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -153,6 +205,12 @@ ALTER TABLE `mz_livro`
 ALTER TABLE `mz_livro`
   ADD CONSTRAINT `FK_cataegoria_id` FOREIGN KEY (`livro_cat`) REFERENCES `mz_categoria` (`cat_id`),
   ADD CONSTRAINT `FK_catalogo_id` FOREIGN KEY (`livro_catalogo`) REFERENCES `mz_catalogo` (`catlg_id`);
+
+--
+-- Constraints for table `mz_meuslivros`
+--
+ALTER TABLE `mz_meuslivros`
+  ADD CONSTRAINT `FK_MeuLivro_id` FOREIGN KEY (`Livro_id`) REFERENCES `mz_livro` (`livro_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
