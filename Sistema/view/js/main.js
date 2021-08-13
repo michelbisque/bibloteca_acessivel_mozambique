@@ -302,7 +302,7 @@ $(function () {
         controls: false,
         infiniteLoop: true,
         shrinkItems: true,
-        auto: true
+        auto: false
     });
 
 
@@ -343,7 +343,7 @@ $(function () {
         controls: false,
         infiniteLoop: true,
         shrinkItems: true,
-        auto: true
+        auto: false
     });
     $('#LivroProximo').click(function(){
         popularItemObjD2.goToNextSlide();
@@ -491,6 +491,10 @@ $(function () {
     var animating; //flag to prevent quick multi-click glitches
 
     $(".next").click(function(){
+        //alert(this.id);
+        if(this.id == "LivroProximo"){
+            return false;
+        }
         if(animating) return false;
         animating = true;
 
@@ -526,6 +530,7 @@ $(function () {
             //this comes from the custom easing plugin
             easing: 'easeInOutBack'
         });
+
     });
 
     $(".previous").click(function(){
@@ -566,6 +571,7 @@ $(function () {
     $(".submit").click(function(){
         return false;
     });
+
 
 
 

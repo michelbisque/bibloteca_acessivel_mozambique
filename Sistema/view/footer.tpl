@@ -96,7 +96,7 @@ async function queryBrowserMicrophonePermission () {
 
                     <ul>
                         <li><b>Desenvolvido Por:</b> Sara   Tivana</li>
-                        <li>Michel Bis..</li>
+                        <li>Michel Bisqué</li>
                         <li>Manuel Novela</li>
                     </ul>
                 </div>
@@ -153,6 +153,7 @@ async function queryBrowserMicrophonePermission () {
 
 <!-- bxSlider -->
 <script type="text/javascript" src="{$TEMA}/js/bxslider.min.js"></script>
+
 
 <!-- Custom Scripts -->
 <script type="text/javascript" src="{$TEMA}/js/main.js"></script>

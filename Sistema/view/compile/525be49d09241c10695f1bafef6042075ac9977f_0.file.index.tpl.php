@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-08-11 04:44:40
+/* Smarty version 3.1.39, created on 2021-08-12 22:33:48
   from 'C:\xampp\htdocs\biblioteca\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6113399862bee4_44639894',
+  'unifunc' => 'content_611585ac0d13e2_15005541',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '525be49d09241c10695f1bafef6042075ac9977f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\biblioteca\\view\\index.tpl',
-      1 => 1628649873,
+      1 => 1628800355,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6113399862bee4_44639894 (Smarty_Internal_Template $_smarty_tpl) {
+function content_611585ac0d13e2_15005541 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -33,6 +33,8 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
 
 
 <div id="main" >
+    <input type="hidden" id="site_url" value="<?php echo $_smarty_tpl->tpl_vars['HOME']->value;?>
+" />
 <?php 
     Rotas::get_Pagina();
 ?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-08-11 05:00:35
+/* Smarty version 3.1.39, created on 2021-08-13 16:26:05
   from 'C:\xampp\htdocs\biblioteca\view\__form_busca.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61133d53e03226_24653590',
+  'unifunc' => 'content_611680fd4e0624_62794535',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f78812d30b31a182c8462d4d01dac6eeee02be55' => 
     array (
       0 => 'C:\\xampp\\htdocs\\biblioteca\\view\\__form_busca.tpl',
-      1 => 1628650344,
+      1 => 1628853964,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61133d53e03226_24653590 (Smarty_Internal_Template $_smarty_tpl) {
+function content_611680fd4e0624_62794535 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Start: Search Section -->
 <section class="search-filters">
     <div class="container">
@@ -31,7 +31,7 @@ function content_61133d53e03226_24653590 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="col-md-4 col-sm-6">
                     <div class="form-group">
                         <label class="sr-only" for="titulo">Pesquise por Titulo</label>
-                        <input class="form-control" placeholder="Insira o titulo de um Livro para pesquisar" id="titulo" name="titulo" type="text" tabindex="0">
+                        <input class="form-control" placeholder="Insira aqui o titulo de um Livro para pesquisar" id="titulo" name="titulo" type="text" tabindex="0">
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">

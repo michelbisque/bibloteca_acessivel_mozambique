@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-08-11 04:49:47
+/* Smarty version 3.1.39, created on 2021-08-13 18:27:04
   from 'C:\xampp\htdocs\biblioteca\view\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61133acb157a68_42376482',
+  'unifunc' => 'content_61169d58e6b3a8_78844698',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fa5758eb98ab48cb6eed885975abac495e6726da' => 
     array (
       0 => 'C:\\xampp\\htdocs\\biblioteca\\view\\footer.tpl',
-      1 => 1628650181,
+      1 => 1628871945,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61133acb157a68_42376482 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61169d58e6b3a8_78844698 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
@@ -64,6 +64,54 @@ function content_61133acb157a68_42376482 (Smarty_Internal_Template $_smarty_tpl)
 <!-- End: Facts Counter -->
 
 
+
+<?php echo '<script'; ?>
+>
+const MIC_PERM_BUTTON = document.querySelector('#ouvir');
+
+MIC_PERM_BUTTON.addEventListener('click', async ev => {
+  console.debug('Mic perm:', 'button click:', ev);
+
+  setTimeout(() => queryBrowserMicrophonePermission(), 200);
+
+  const res = await launchBrowserMicrophoneAllowPrompt();
+
+  queryBrowserMicrophonePermission();
+});
+
+queryBrowserMicrophonePermission();
+
+async function launchBrowserMicrophoneAllowPrompt () {
+  try { // Initiate the browser prompt.
+    const res = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+
+    console.warn('Mic perm:', 'allow:', res);
+    return res;
+  } catch (err) {
+    console.warn('Mic perm:', 'block:', err); // "DOMException: Permission denied"
+    return false;
+  }
+}
+
+async function queryBrowserMicrophonePermission () {
+  const result = await navigator.permissions.query({ name: 'microphone' });
+
+  if (result.state == 'granted') {
+  } else if (result.state == 'prompt') {
+  } else if (result.state == 'denied') {
+  }
+
+  result.onchange = ev => {
+    console.warn('Mic perm:', 'onchange:', ev);
+  };
+
+  console.warn('Mic perm:', 'state:', result.state, result);
+  return result;
+}
+<?php echo '</script'; ?>
+>
+
+
 <!-- Start: Footer -->
 <footer class="site-footer">
 
@@ -78,7 +126,7 @@ function content_61133acb157a68_42376482 (Smarty_Internal_Template $_smarty_tpl)
 
                     <ul>
                         <li><b>Desenvolvido Por:</b> Sara   Tivana</li>
-                        <li>Michel Bis..</li>
+                        <li>Michel Bisqué</li>
                         <li>Manuel Novela</li>
                     </ul>
                 </div>
@@ -183,6 +231,7 @@ function content_61133acb157a68_42376482 (Smarty_Internal_Template $_smarty_tpl)
  type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['TEMA']->value;?>
 /js/bxslider.min.js"><?php echo '</script'; ?>
 >
+
 
 <!-- Custom Scripts -->
 <?php echo '<script'; ?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-08-11 05:01:34
+/* Smarty version 3.1.39, created on 2021-08-13 18:40:11
   from 'C:\xampp\htdocs\biblioteca\view\pesquisa.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61133d8e4995a5_04567088',
+  'unifunc' => 'content_6116a06b768d76_65659921',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3de045f848ff1b731898e34c49182cfeb882d7a9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\biblioteca\\view\\pesquisa.tpl',
-      1 => 1628650797,
+      1 => 1628864693,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__form_busca.tpl' => 1,
   ),
 ),false)) {
-function content_61133d8e4995a5_04567088 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6116a06b768d76_65659921 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Start: Products Section -->
 <div id="content" class="site-content">
     <div id="primary" class="content-area">
@@ -109,7 +109,7 @@ $_smarty_tpl->tpl_vars['l']->do_else = false;
 </span><br>
                                                 <span class="author" tabindex="0"><strong tabindex="0">ISBN:</strong> <?php echo $_smarty_tpl->tpl_vars['l']->value['livro_ISBN'];?>
 </span>
-                                                <p tabindex="0"><?php echo $_smarty_tpl->tpl_vars['l']->value['livro_prologo'];?>
+                                                <p tabindex="0"><?php echo substr($_smarty_tpl->tpl_vars['l']->value['livro_prologo'],0,100);?>
 </p>
 
                                             </div>

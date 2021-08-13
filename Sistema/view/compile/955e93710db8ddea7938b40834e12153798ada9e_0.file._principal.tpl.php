@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-08-11 05:00:35
+/* Smarty version 3.1.39, created on 2021-08-13 16:26:05
   from 'C:\xampp\htdocs\biblioteca\view\_principal.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61133d53aa8ee1_06150351',
+  'unifunc' => 'content_611680fd3e2680_82794872',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '955e93710db8ddea7938b40834e12153798ada9e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\biblioteca\\view\\_principal.tpl',
-      1 => 1628650813,
+      1 => 1628864693,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__form_busca.tpl' => 1,
   ),
 ),false)) {
-function content_61133d53aa8ee1_06150351 (Smarty_Internal_Template $_smarty_tpl) {
+function content_611680fd3e2680_82794872 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:__form_busca.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -128,7 +128,7 @@ $_smarty_tpl->tpl_vars['l']->do_else = false;
 </span>
                                         <span class="author" tabindex="0"><strong tabindex="0">ISBN:</strong> <?php echo $_smarty_tpl->tpl_vars['l']->value['livro_ISBN'];?>
 </span>
-                                        <p tabindex="0"><?php echo $_smarty_tpl->tpl_vars['l']->value['livro_prologo'];?>
+                                        <p tabindex="0"><?php echo substr($_smarty_tpl->tpl_vars['l']->value['livro_prologo'],0,100);?>
 </p>
 
                                     </div>

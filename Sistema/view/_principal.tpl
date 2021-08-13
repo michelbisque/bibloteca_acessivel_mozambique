@@ -81,7 +81,7 @@
                                         <h4 tabindex="0">{$l.livro_titulo}</h4>
                                         <span class="author" tabindex="0"><strong tabindex="0">Autor:</strong>{$l.livro_autor}</span>
                                         <span class="author" tabindex="0"><strong tabindex="0">ISBN:</strong> {$l.livro_ISBN}</span>
-                                        <p tabindex="0">{$l.livro_prologo}</p>
+                                        <p tabindex="0">{substr($l.livro_prologo, 0, 100)}</p>
 
                                     </div>
                                 </figcaption>

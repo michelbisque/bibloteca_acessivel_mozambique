@@ -1,4 +1,4 @@
-
+//Microphone
 function getLocalStream() {
    if (window.location.protocol != "https") {
             //window.location = "https://" + window.location.href.substring(window.location.protocol.length, window.location.href.length);
@@ -7,14 +7,13 @@ function getLocalStream() {
     
 }
 
-   navigator.permissions.query({name: 'microphone'})
+navigator.permissions.query({name: 'microphone'})
  .then((permissionObj) => {
   console.log(permissionObj.state);
  })
  .catch((error) => {
   console.log('Got error :', error);
  })
-
 
 
 getLocalStream();
@@ -29,13 +28,13 @@ function populateVoiceList() {
     voices = speechSynthesis.getVoices();
 
     for(var i = 0; i < voices.length; i++) {
-        if(voices[i].name == "Google português do Brasil"){
+        if(voices[i].name == "Google português do Brasil"  || voices[i].name == "Microsoft Helia - Portuguese (Portugal)"){
             languagueID = i;
         }
         if(voices[i].default) {
-            console.log("Default");
+           // console.log("Default");
         }
-        console.log(voices[i].name);
+       // console.log(voices[i].name);
 
     }
 }
@@ -57,7 +56,7 @@ function speak(message) {
     window.speechSynthesis.speak(utterance);
     iniciou_fala = window.speechSynthesis.speaking;
 
-    console.log(languagueID+": id da lingua | iniciou fala :"+iniciou_fala);
+    console.log(languagueID+": id da lingua | iniciou fala :"+iniciou_fala+" | message :"+message);
 
 }
 
@@ -146,6 +145,10 @@ function process(rawText) {
             response = "Confirmado!"; break;
         case "sair":
             response = "Saindo do Sistema";
+
+        case "próximo":
+            proximo();
+            break;
         case "como você está":
             response = "estou bem e você";
         case "comandos":
@@ -162,3 +165,22 @@ sendEvent = function(sel, step) {
     var sel_event = new CustomEvent('next.m.' + step, {detail: {step: step}});
     window.dispatchEvent(sel_event);
 }
+
+var lastTabIndex = 10;
+function proximo()
+{
+    var currentElement = this; // ID set by OnFOcusIn
+    var curIndex = currentElement.tabIndex; //get current elements tab index
+    if(curIndex == lastTabIndex) { //if we are on the last tabindex, go back to the beginning
+        curIndex = 0;
+    }
+    var tabbables = document.querySelectorAll('[tabindex = "0"]'); //get all tabable elements
+    for(var i=0; i<tabbables.length; i++) { //loop through each element
+        if(tabbables[i].tabIndex == (curIndex+1)) { //check the tabindex to see if it's the element we want
+            tabbables[i].focus(); //if it's the one we want, focus it and exit the loop
+            break;
+        }
+    }
+}
+
+

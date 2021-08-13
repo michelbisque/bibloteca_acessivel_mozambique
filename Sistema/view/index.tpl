@@ -5,6 +5,7 @@
 
 
 <div id="main" >
+    <input type="hidden" id="site_url" value="{$HOME}" />
 {php}
     Rotas::get_Pagina();
 {/php}

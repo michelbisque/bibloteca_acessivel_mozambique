@@ -7,7 +7,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="form-group">
                         <label class="sr-only" for="titulo">Pesquise por Titulo</label>
-                        <input class="form-control" placeholder="Insira o titulo de um Livro para pesquisar" id="titulo" name="titulo" type="text" tabindex="0">
+                        <input class="form-control" placeholder="Insira aqui o titulo de um Livro para pesquisar" id="titulo" name="titulo" type="text" tabindex="0">
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-08-11 04:26:42
+/* Smarty version 3.1.39, created on 2021-08-13 14:03:27
   from 'C:\xampp\htdocs\biblioteca\view\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_611335626a81d8_54754709',
+  'unifunc' => 'content_61165f8f6944f0_61270733',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '06f916708062005e60821dd99e91ef686fcdc3a6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\biblioteca\\view\\header.tpl',
-      1 => 1628648729,
+      1 => 1628856202,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_611335626a81d8_54754709 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61165f8f6944f0_61270733 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Start: Header Section -->
 <header id="header-v1" class="navbar-wrapper inner-navbar-wrapper">
     <div class="container">
@@ -87,11 +87,12 @@ function content_611335626a81d8_54754709 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                 </div>
             </nav>
+
         </div>
     </div>
 </header>
 
-<div class="black-hr" style="background: #fff;height: 150px;">
+<div class="black-hr" style="background: #fff;height: 100px;">
 
        <!--LEAVE ME HERE! Fsociety -->
 

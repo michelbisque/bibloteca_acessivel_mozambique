@@ -52,11 +52,12 @@
                     </div>
                 </div>
             </nav>
+
         </div>
     </div>
 </header>
 
-<div class="black-hr" style="background: #fff;height: 150px;">
+<div class="black-hr" style="background: #fff;height: 100px;">
 
        <!--LEAVE ME HERE! Fsociety -->
 

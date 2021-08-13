@@ -17,7 +17,8 @@
                             <p tabindex="0"><strong tabindex="0">Autor:</strong>  {$l.livro_autor}</p>
                             <p tabindex="0"><strong tabindex="0">ISBN:</strong>  {$l.livro_ISBN}</p>
                         </header>
-                        <p tabindex="0">{$l.livro_prologo}</p>
+
+                        <p tabindex="0">{substr($l.livro_prologo, 0, 100)}</p>
                         <div class="actions" tabindex="0">
                             <ul>
                                 <li>
@@ -31,7 +32,7 @@
             {/foreach}
 
         </ul>
-        <div class="nav-links" tabindex="0">
+        <div class="nav-links" tabindex="0" id="nav-links">
             <a tabindex="0" class="prev page-numbers" href="#" id="LivroAnterior"> <i class="fa fa-long-arrow-left"></i>Anterior</a>
             <a tabindex="0" class="next page-numbers" href="#" id="LivroProximo"> Proximo <i class="fa fa-long-arrow-right"></i></a>
         </div>

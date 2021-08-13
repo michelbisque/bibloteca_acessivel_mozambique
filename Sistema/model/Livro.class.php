@@ -21,6 +21,21 @@ class Livro extends Conexao
       $this->ExecuteSQL($query);
       $this->getLista();
     }
+    function get_LivroID($id)
+    {
+        //query especifica para buscar produtos de uma categoria especifica
+        $query = "SELECT * FROM {$this->db_prefix}livro l ,
+      {$this->db_prefix}categoria c, {$this->db_prefix}catalogo g WHERE  l.livro_cat = c.cat_id AND l.livro_catalogo = g.catlg_id";
+
+        $query.= " AND livro_id = :id ";
+
+        $params = array(':id'=>(int)$id);
+
+        $this->ExecuteSQL($query,$params);
+        $this->getLista();
+    }
+
+
     function get_MeusLivros()
     {
         //query especifica para buscar produtos de uma categoria especifica
@@ -61,6 +76,7 @@ class Livro extends Conexao
             'livro_cat_id' => $lista['cat_id'],
             'livro_cat_nome' => $lista['cat_nome'],
             'livro_catalogo_nome' => $lista['catlg_icon'],
+            'livro_ficheiro' => $lista['livro_ficheiro'],
           );
           $i++;
       }

@@ -1,5 +1,9 @@
-const url = 'http://bibliotecaacessivel.rf.gd/media/pdf/pdf.pdf';
-let pdfDoc = null,
+var site_path = document.getElementById("site_url").value;
+var file_name = document.getElementById("book_name").value;
+
+const url = site_path+'/media/pdf/'+file_name;
+
+    let pdfDoc = null,
     pageNum = 1,
     pageIsRendering = false,
     pageNumIsPending = null;
@@ -35,6 +39,7 @@ const renderPage = num => {
 
         // Output current page
         document.querySelector('#page-num').textContent = num;
+        document.querySelector('#page-num2').textContent = num;
     });
 };
 
@@ -72,6 +77,7 @@ pdfjsLib
     pdfDoc = pdfDoc_;
 
     document.querySelector('#page-count').textContent = pdfDoc.numPages;
+    document.querySelector('#page-count2').textContent = pdfDoc.numPages;
 
     renderPage(pageNum);
 })
@@ -88,3 +94,5 @@ pdfjsLib
 // Button Events
 document.querySelector('#prev-page').addEventListener('click', showPrevPage);
 document.querySelector('#next-page').addEventListener('click', showNextPage);
+document.querySelector('#prev-page2').addEventListener('click', showPrevPage);
+document.querySelector('#next-page2').addEventListener('click', showNextPage);
